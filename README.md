@@ -5,7 +5,7 @@
 This project is a Proof of Concept (PoC) built to demonstrate autonomous AI-agent capabilities, function calling, and database management. It is not fully equipped, hardened, or secure enough to be deployed in an actual, production-level library environment. As an experimental PoC, it may contain bugs, unhandled edge cases, or occasional AI hallucinations. Please use it for educational and experimental purposes.
 
 ## Overview
-The Library Manager is an AI-powered library assistant designed to manage a library's user database, book registry, and borrowing system. It provides tools for both regular users and administrators to interact with the library system efficiently. The AI agent is friendly, conversational, and highly capable of executing tasks such as adding users, managing books, and handling borrowing requests.
+The Library Manager is an AI-powered library assistant designed to manage a library's user database, book registry, and borrowing system. It provides tools for both regular users and administrators to interact with the library system efficiently. The AI agent is friendly, conversational, and highly capable of executing tasks such as adding users, managing books, and handling borrowing requests. This application was built off of Cloudflare's agents starter template, available at https://github.com/cloudflare/agents-starter.
 
 ### General Purpose of the AI Agent
 The AI agent acts as a virtual library assistant. It can:
