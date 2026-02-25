@@ -1,0 +1,1 @@
+While no generative AI prompts were used to build this application, GitHub Copilot was used for inline code completion. All suggestions were carefully analyzed and corrected before deployment. AI tools were also used to help format the final README and documentation files.
