@@ -20,6 +20,14 @@ The AI agent acts as a virtual library assistant. It can:
 * **ORM:** Drizzle ORM
 * **Validation:** Zod
 
+## Live Demo
+Want to test the AI agent right now without installing anything? You can chat with the live deployment here:
+
+**[Test the Library Manager Live](https://library-manager.andre-mdpsa.workers.dev/)**
+
+* (Note: This is a shared, live environment. The database is actively modified by anyone using the demo, so you may see books or users added by other testers!)*
+
+
 ## Setup & Installation
 
 ### Prerequisites
