@@ -61,8 +61,8 @@ npm install
 ```
 
 
-3. **Apply Database Migrations (Crucial):**
-Set up your local SQLite tables before the AI tries to use them:
+3. **Apply Database Migrations:**
+Set up your local SQLite tables:
 ```bash
 npx wrangler d1 migrations apply <your-database-name> --local
 
@@ -108,32 +108,32 @@ npm run deploy
 
 ### User Tools
 
-* **`addUser`**
+**`addUser`**
 * **Description**: Add a user to the database with their name.
 * **Example Prompt**: "Add a user named John Doe to the library."
 
 
-* **`getUsers`**
+**`getUsers`**
 * **Description**: Retrieve a list of users from the database. Optionally search by name.
 * **Example Prompts**: "Show me all registered users." | "Find users with the name 'Jane'."
 
 
-* **`getBooks`**
+**`getBooks`**
 * **Description**: Retrieve a list of books from the database. Optionally search by title or author.
 * **Example Prompts**: "List all books in the library." | "Find books written by J.K. Rowling."
 
 
-* **`checkUserBorrowedBooks`**
+**`checkUserBorrowedBooks`**
 * **Description**: Check which books a user has borrowed.
 * **Example Prompt**: "What books has John Doe borrowed?"
 
 
-* **`RequestBook`**
+**`RequestBook`**
 * **Description**: Request to borrow a book from the library.
 * **Example Prompt**: "John Doe wants to borrow 'The Great Gatsby'."
 
 
-* **`ReturnBook`**
+**`ReturnBook`**
 * **Description**: Return a borrowed book to the library.
 * **Example Prompt**: "John Doe wants to return 'The Great Gatsby'."
 
@@ -143,41 +143,41 @@ npm run deploy
 
 **Note**: Admin tools provide advanced capabilities for managing the library system. The application allows you to switch between User Mode and Admin Mode by clicking a toggle button located on the top bar of the interface.
 
-* **`removeUserByName`**
+**`removeUserByName`**
 * **Description**: Remove a user from the database by name.
 * **Example Prompt**: "Remove the user named John Doe."
 
 
-* **`addBook`**
+**`addBook`**
 * **Description**: Add a book to the database with its title, author, and number of volumes. Defaults to a single volume.
 * **Example Prompts**: "Add '1984' by George Orwell to the library." | "Add 'To Kill a Mockingbird' with 3 volumes."
 
 
-* **`removeBookByTitle`**
+**`removeBookByTitle`**
 * **Description**: Remove a book from the database by title.
 * **Example Prompt**: "Remove the book titled '1984'."
 
 
-* **`changeStock`**
+**`changeStock`**
 * **Description**: Adjust the number of volumes of a book in stock.
 * **Example Prompt**: "Increase the stock of '1984' by 5 volumes."
 
 
-* **`getAllRequests`**
+**`getAllRequests`**
 * **Description**: Retrieve all book requests in the system.
 * **Example Prompt**: "Show me all book requests."
 
 
-* **`getRequestsByBook`**
+**`getRequestsByBook`**
 * **Description**: Retrieve all requests for a specific book by title.
 * **Example Prompt**: "Show me all requests for '1984'."
 
 
-* **`removeRequest`**
+**`removeRequest`**
 * **Description**: Remove a request by the user's name and book's title.
 * **Example Prompt**: "Remove John Doe's request for '1984'."
 
 
-* **`createTestDatabase`**
+**`createTestDatabase`**
 * **Description**: Populate the database with test data.
 * **Example Prompt**: "Create a test database with sample users, books, and requests."
