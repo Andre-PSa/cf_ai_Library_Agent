@@ -337,6 +337,11 @@ export function buildAgentTools(isAdmin: boolean, db: ReturnType<typeof drizzle>
                 return {error: "Multiple books found with that title. Please provide a more specific title.", similarBooks: books};
             }
             const book = books[0];
+            const activeRequests = await db.select().from(requests).where(and(eq(requests.bookID, book.bookID), isNull(requests.returnDate)));
+            for (const request of activeRequests) {
+                await db.update(libraryUsers).set({ borrowedBooks: sql`${libraryUsers.borrowedBooks} - 1` }).where(eq(libraryUsers.userID, request.userID));
+            }
+            await db.delete(requests).where(eq(requests.bookID, book.bookID));
             try{
                 const result = await db.delete(bookRegistry).where(eq(bookRegistry.bookID, book.bookID)).returning();
                 return { success: true, removedBook: result[0] };
