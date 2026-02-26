@@ -282,10 +282,12 @@ export function buildAgentTools(isAdmin: boolean, db: ReturnType<typeof drizzle>
         else if (users.length > 1) {
             return {error: "Multiple users found with that name. Please provide a more specific name.", similarUsers: users};
         }
-        if(users[0].borrowedBooks!== null && users[0].borrowedBooks > 0){
-            await db.update(bookRegistry).set({ borrowed: sql`${bookRegistry.borrowed} - 1` }).where(and(eq(bookRegistry.bookID, requests.bookID), eq(requests.userID, users[0].userID), isNull(requests.returnDate)));
-            await db.delete(requests).where(eq(requests.userID, users[0].userID));
+        
+        const activeRequests = await db.select().from(requests).where(and(eq(requests.userID, users[0].userID), isNull(requests.returnDate)));
+        for (const request of activeRequests) {
+            await db.update(bookRegistry).set({ borrowed: sql`${bookRegistry.borrowed} - 1` }).where(eq(bookRegistry.bookID, request.bookID));
         }
+        await db.delete(requests).where(eq(requests.userID, users[0].userID));
         const result = await db.delete(libraryUsers).where(eq(libraryUsers.name, userName)).returning();
         return { success: true, removedUser: result[0] };
         }
